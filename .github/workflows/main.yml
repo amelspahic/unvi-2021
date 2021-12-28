@@ -22,8 +22,4 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Publish
-        run: dotnet publish -c Release -o ./unvi
-      - run: cd unvi
-      - name: Start the application
-        working-directory: ./unvi
-        run: dotnet Library.WebAPI.dll
+        run: dotnet publish -c Release -o /var/www/unvi
