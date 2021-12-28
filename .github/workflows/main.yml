@@ -18,12 +18,12 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: ~/.dotnet/dotnet restore
+        run: dotnet restore
       - name: Build
-        run: ~/.dotnet/dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
       - name: Publish
-        run: ~/.dotnet/dotnet publish -c Release -o ./unvi
+        run: dotnet publish -c Release -o ./unvi
       - run: cd unvi
       - name: Start the application
         working-directory: ./unvi
-        run: ~/.dotnet/dotnet Library.WebAPI.dll
+        run: dotnet Library.WebAPI.dll
