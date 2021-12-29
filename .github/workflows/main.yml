@@ -35,4 +35,6 @@ jobs:
         run: dotnet publish -c Release -o /var/www/sample-app
         
       - name: Restart the app
-        run: systemctl --user restart sample-app.service
+        run: |
+          export XDG_RUNTIME_DIR=/run/user/$(id -u)
+          systemctl --user restart sample-app.service
